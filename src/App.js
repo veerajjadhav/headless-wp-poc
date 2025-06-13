@@ -1,12 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-import './index.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [bannerText, setBannerText] = useState('');
+
+  useEffect(() => {
+    fetch('https://gomowebb.com/headless-poc/wp-json/wp/v2/pages/7')
+      .then(response => response.json())
+      .then(data => {
+        setBannerText(data.acf.banner_text);
+      });
+  }, []);
+
   return (
     <div className="App">
-      <div className="text-red-500 text-4xl font-bold">This should be red!!</div>
-   
+      <div className="bg-blue-200 text-center text-2xl font-bold p-4">
+        {bannerText || 'Loading...'}
+      </div>
     </div>
   );
 }
