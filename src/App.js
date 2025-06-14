@@ -34,54 +34,60 @@ function App() {
     switch (block.acf_fc_layout) {
       case 'hero_section':
         return (
-          <section key={index} className="bg-blue-100 p-6 text-center">
-            <h1 className="text-3xl font-bold">{block.heading}</h1>
-            {block.short_description && (
-              <div
-                className="mt-4 text-lg"
-                dangerouslySetInnerHTML={{ __html: block.short_description }}
-              />
-            )}
-            {block.cta_button && block.cta_url && (
-              <a
-                href={block.cta_url}
-                className="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded"
-              >
-                {block.cta_button}
-              </a>
-            )}
+          <section key={index} className="bg-blue-100 p-6">
+            <div className="max-w-screen-xl mx-auto text-center px-4">
+              <h1 className="text-3xl font-bold">{block.heading}</h1>
+              {block.short_description && (
+                <div
+                  className="mt-4 text-lg"
+                  dangerouslySetInnerHTML={{ __html: block.short_description }}
+                />
+              )}
+              {block.cta_button && block.cta_url && (
+                <a
+                  href={block.cta_url}
+                  className="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded"
+                >
+                  {block.cta_button}
+                </a>
+              )}
+            </div>
           </section>
         );
 
       case 'after_hero_section':
         return (
           <section key={index} className="p-6">
-            {block.text_img_row?.map((row, i) => (
-              <div key={i} className="flex flex-wrap gap-4 items-center my-4">
-                <div
-                  className="w-full md:w-1/2"
-                  dangerouslySetInnerHTML={{ __html: row.left_text }}
-                />
-                <div className="w-full md:w-1/2">
-                  <img
-                    src={row.right_image?.url}
-                    alt={row.right_image?.alt || ''}
-                    className="rounded shadow"
+            <div className="max-w-screen-xl mx-auto px-4">
+              {block.text_img_row?.map((row, i) => (
+                <div key={i} className="flex flex-wrap gap-4 items-center my-4">
+                  <div
+                    className="w-full md:w-1/2"
+                    dangerouslySetInnerHTML={{ __html: row.left_text }}
                   />
+                  <div className="w-full md:w-1/2">
+                    <img
+                      src={row.right_image?.url}
+                      alt={row.right_image?.alt || ''}
+                      className="rounded shadow w-full"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </section>
         );
 
       case 'contact_form_section':
         return (
           <section key={index} className="p-6">
-           <iframe
-  src="https://gomowebb.com/headless-poc/contact-us/"
-  title="Contact Form"
-  className="w-full min-h-[600px] border border-gray-300 rounded"
-/>
+            <div className="max-w-screen-xl mx-auto px-4">
+              <iframe
+                src="https://gomowebb.com/headless-poc/contact-us/"
+                title="Contact Form"
+                className="w-full min-h-[600px] border border-gray-300 rounded"
+              />
+            </div>
           </section>
         );
 
@@ -95,7 +101,7 @@ function App() {
       <Route
         path="/"
         element={
-          <div className="App">
+          <div className="App bg-gray-50">
             {isLoading ? (
               <div className="text-center p-4">Loading...</div>
             ) : (
