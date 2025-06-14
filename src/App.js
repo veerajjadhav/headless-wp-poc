@@ -77,11 +77,11 @@ function App() {
       case 'contact_form_section':
         return (
           <section key={index} className="p-6">
-            <iframe
-              src="https://gomowebb.com/headless-poc/contact/"
-              title="Contact Form"
-              className="w-full min-h-[600px] border border-gray-300 rounded"
-            />
+           <iframe
+  src="https://gomowebb.com/headless-poc/contact-us/"
+  title="Contact Form"
+  className="w-full min-h-[600px] border border-gray-300 rounded"
+/>
           </section>
         );
 
