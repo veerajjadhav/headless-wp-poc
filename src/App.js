@@ -44,17 +44,7 @@ function renderBlock(block, index) {
           ))}
         </section>
       );
-      case 'contact_form_section':
-  return (
-    <section key={index} className="p-6 bg-white">
-      <h2 className="text-2xl font-bold text-center mb-4">Contact Us</h2>
-      <iframe
-        src="https://gomowebb.com/headless-poc/contact/"
-        className="w-full min-h-[600px] border border-gray-300 rounded"
-        title="Contact Form"
-      />
-    </section>
-  );
+      
 
     default:
       return null;
